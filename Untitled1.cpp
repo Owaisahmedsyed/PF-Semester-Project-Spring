@@ -37,3 +37,17 @@ int main() {
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
         getchar(); // Clear input buffer
+        
+        switch (choice) {
+            case 1: addAppointment(appointments, &count); break;
+            case 2: viewAppointments(appointments, count); break;
+            case 3: searchAppointment(appointments, count); break;
+            case 4: deleteAppointment(appointments, &count); break;
+            case 5: saveToFile(appointments, count);
+                    printf("Appointments saved. Exiting...\n"); break;
+            default: printf("Invalid choice! Try again.\n");
+        }
+    } while (choice != 5);
+
+    return 0;
+}
