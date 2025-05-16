@@ -51,3 +51,14 @@ int main() {
 
     return 0;
 }
+
+// Menu
+void menu() {
+    printf("\n--- Clinic Appointment Management ---\n");
+    printf("1. Add Appointment\n");
+    printf("2. View All Appointments\n");
+    printf("3. Search Appointment by ID\n");
+    printf("4. Delete Appointment by ID\n");
+    printf("5. Exit & Save\n");
+}
+
