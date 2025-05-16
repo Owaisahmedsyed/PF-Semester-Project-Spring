@@ -22,3 +22,18 @@ void loadFromFile(struct Appointment *appointments, int *count);
 void searchAppointment(struct Appointment *appointments, int count);
 void deleteAppointment(struct Appointment *appointments, int *count);
 void menu();
+
+
+int main() {
+    struct Appointment appointments[MAX_APPOINTMENTS];
+    int count = 0;
+
+    // Load appointments from file at start
+    loadFromFile(appointments, &count);
+
+    int choice;
+    do {
+        menu();
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+        getchar(); // Clear input buffer
