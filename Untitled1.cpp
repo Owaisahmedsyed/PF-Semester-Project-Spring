@@ -62,3 +62,39 @@ void menu() {
     printf("5. Exit & Save\n");
 }
 
+// Function to add appointment
+void addAppointment(struct Appointment *appointments, int *count) {
+    if (*count >= MAX_APPOINTMENTS) {
+        printf("Cannot add more appointments.\n");
+        return;
+    }
+
+    struct Appointment *a = &appointments[*count];
+    a->id = *count + 1;
+
+    printf("Enter patient name: ");
+    fgets(a->patientName, sizeof(a->patientName), stdin);
+    a->patientName[strcspn(a->patientName, "\n")] = '\0';
+
+    printf("Enter gender (Male/Female/Other): ");
+    fgets(a->gender, sizeof(a->gender), stdin);
+    a->gender[strcspn(a->gender, "\n")] = '\0';
+
+    printf("Enter doctor name: ");
+    fgets(a->doctorName, sizeof(a->doctorName), stdin);
+    a->doctorName[strcspn(a->doctorName, "\n")] = '\0';
+
+    printf("Enter date (dd/mm/yyyy): ");
+    fgets(a->date, sizeof(a->date), stdin);
+    a->date[strcspn(a->date, "\n")] = '\0';
+
+    printf("Enter time (hh:mm): ");
+    fgets(a->time, sizeof(a->time), stdin);
+    a->time[strcspn(a->time, "\n")] = '\0';
+
+    (*count)++;
+
+    printf("Appointment added successfully.\n");
+}
+
+
