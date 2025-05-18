@@ -96,3 +96,23 @@ void addAppointment(struct Appointment *appointments, int *count) {
 
     printf("Appointment added successfully.\n");
 }
+
+// Function to view appointments
+void viewAppointments(struct Appointment *appointments, int count) {
+    if (count == 0) {
+        printf("No appointments to show.\n");
+        return;
+    }
+
+    printf("\n%-5s %-20s %-10s %-20s %-12s %-10s\n", "ID", "Patient Name", "Gender", "Doctor Name", "Date", "Time");
+    printf("--------------------------------------------------------------------------------------\n");
+    for (int i = 0; i < count; i++) {
+        printf("%-5d %-20s %-10s %-20s %-12s %-10s\n",
+               appointments[i].id,
+               appointments[i].patientName,
+               appointments[i].gender,
+               appointments[i].doctorName,
+               appointments[i].date,
+               appointments[i].time);
+    }
+}
