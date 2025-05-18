@@ -97,6 +97,7 @@ void addAppointment(struct Appointment *appointments, int *count) {
     printf("Appointment added successfully.\n");
 }
 
+<<<<<<< HEAD
 // Function to view appointments
 void viewAppointments(struct Appointment *appointments, int count) {
     if (count == 0) {
@@ -116,3 +117,6 @@ void viewAppointments(struct Appointment *appointments, int count) {
                appointments[i].time);
     }
 }
+=======
+
+>>>>>>> adb24aa94b910e309b567bdfc6ded1362fca43fd
