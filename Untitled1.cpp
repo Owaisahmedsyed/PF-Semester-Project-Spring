@@ -177,5 +177,27 @@ void searchAppointment(struct Appointment *appointments, int count) {
     printf("Appointment with ID %d not found.\n", id);
 }
 
+// Delete appointment
+void deleteAppointment(struct Appointment *appointments, int *count) {
+    int id, found = 0;
+    printf("Enter appointment ID to delete: ");
+    scanf("%d", &id);
+
+    for (int i = 0; i < *count; i++) {
+        if (appointments[i].id == id) {
+            for (int j = i; j < *count - 1; j++) {
+                appointments[j] = appointments[j + 1];
+                appointments[j].id = j + 1;
+            }
+            (*count)--;
+            found = 1;
+            printf("Appointment deleted.\n");
+            break;
+        }
+    }
+
+    if (!found)
+        printf("Appointment with ID %d not found.\n", id);
+}
 
 
