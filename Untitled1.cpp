@@ -155,4 +155,27 @@ void loadFromFile(struct Appointment *appointments, int *count) {
     fclose(file);
 }
 
+// Search appointment by ID
+void searchAppointment(struct Appointment *appointments, int count) {
+    int id;
+    printf("Enter appointment ID to search: ");
+    scanf("%d", &id);
+
+    for (int i = 0; i < count; i++) {
+        if (appointments[i].id == id) {
+            printf("\nAppointment Found:\n");
+            printf("Patient: %s\nGender: %s\nDoctor: %s\nDate: %s\nTime: %s\n",
+                   appointments[i].patientName,
+                   appointments[i].gender,
+                   appointments[i].doctorName,
+                   appointments[i].date,
+                   appointments[i].time);
+            return;
+        }
+    }
+
+    printf("Appointment with ID %d not found.\n", id);
+}
+
+
 
