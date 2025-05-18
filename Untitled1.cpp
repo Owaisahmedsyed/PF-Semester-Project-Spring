@@ -116,4 +116,43 @@ void viewAppointments(struct Appointment *appointments, int count) {
                appointments[i].time);
     }
 }
+// Save to file
+void saveToFile(struct Appointment *appointments, int count) {
+    FILE *file = fopen("appointments.txt", "w");
+    if (!file) {
+        printf("Error opening file for writing!\n");
+        return;
+    }
+
+    for (int i = 0; i < count; i++) {
+        fprintf(file, "%d,%s,%s,%s,%s,%s\n",
+                appointments[i].id,
+                appointments[i].patientName,
+                appointments[i].gender,
+                appointments[i].doctorName,
+                appointments[i].date,
+                appointments[i].time);
+    }
+
+    fclose(file);
+}
+
+// Load from file
+void loadFromFile(struct Appointment *appointments, int *count) {
+    FILE *file = fopen("appointments.txt", "r");
+    if (!file) return;
+
+    while (fscanf(file, "%d,%49[^,],%9[^,],%49[^,],%14[^,],%9[^\n]\n",
+                  &appointments[*count].id,
+                  appointments[*count].patientName,
+                  appointments[*count].gender,
+                  appointments[*count].doctorName,
+                  appointments[*count].date,
+                  appointments[*count].time) == 6) {
+        (*count)++;
+    }
+
+    fclose(file);
+}
+
 
